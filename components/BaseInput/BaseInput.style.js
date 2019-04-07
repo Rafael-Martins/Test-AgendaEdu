@@ -1,4 +1,8 @@
 import styled from "styled-components";
+import { colors } from "../../constants/Colors";
+
+const inputBorderColor = props =>
+  props.isActive ? colors.primary : colors.whiteGray;
 
 export const Input = styled.TextInput`
   color: black;
@@ -7,7 +11,7 @@ export const Input = styled.TextInput`
   border-bottom-width: 1px;
   border-top-width: 1px;
   border-left-width: 1px;
-  border-color: #abb1b7;
+  border-color: ${inputBorderColor};
   border-bottom-left-radius: 3px;
   border-top-left-radius: 3px;
   padding-left: 20px;
@@ -23,7 +27,7 @@ export const IconContainer = styled.View`
   border-bottom-width: 1px;
   border-top-width: 1px;
   border-right-width: 1px;
-  border-color: #abb1b7;
+  border-color: ${inputBorderColor};
   border-bottom-right-radius: 3px;
   border-top-right-radius: 3px;
   justify-content: center;
@@ -39,5 +43,5 @@ export const LabelContainer = styled.View`
 
 export const Label = styled.Text`
   font-size: 14px;
-  color: #666666;
+  color: ${colors.gray};
 `;
