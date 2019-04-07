@@ -1,9 +1,10 @@
 import React from "react";
-import { View, Text } from "react-native";
-import { Input } from "./BaseInput.style";
+import { Input, InputContainer } from "./BaseInput.style";
+import Icon from "react-native-vector-icons/FontAwesome";
 
 export const BaseInput = props => (
-  <View>
+  <InputContainer>
     <Input />
-  </View>
+    <Icon name="envelope-o" />
+  </InputContainer>
 );

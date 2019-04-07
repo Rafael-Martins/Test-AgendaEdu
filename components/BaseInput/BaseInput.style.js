@@ -6,3 +6,9 @@ export const Input = styled.TextInput`
   border: 1px solid #abb1b7;
   border-radius: 3px;
 `;
+
+export const InputContainer = styled.View`
+  flex-direction: row;
+`;
+
+export const IconContainer = styled.View``;
