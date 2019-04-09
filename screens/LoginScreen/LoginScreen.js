@@ -22,7 +22,6 @@ export class LoginScreen extends React.Component {
     try {
       const response = await http.login(this.state.email, this.state.password);
       this.props.navigation.navigate("AuthLoadingScreen");
-      console.log(response);
     } catch (error) {
       console.log(error);
     }

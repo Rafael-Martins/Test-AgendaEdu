@@ -21,11 +21,32 @@ export default {
         const { token } = await response.json();
         try {
           await AsyncStorage.setItem("token", token);
-        } catch (e) {
-          console.log(e);
+        } catch (error) {
+          console.log(error);
         }
 
         return token;
+      }
+
+      return response;
+    } catch (error) {
+      console.log(error);
+    }
+  },
+
+  getEvents: async () => {
+    try {
+      const response = await fetch(`${BASE_URL}/events?limit=1;page=1`, {
+        method: "GET",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+          token: await AsyncStorage.getItem("token")
+        }
+      });
+
+      if (response.ok) {
+        console.log(response);
       }
 
       return response;
