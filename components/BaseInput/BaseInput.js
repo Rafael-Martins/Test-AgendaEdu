@@ -27,6 +27,7 @@ export class BaseInput extends React.Component {
         </LabelContainer>
         <InputContainer>
           <Input
+            onChangeText={this.props.onChangeText}
             textContentType={this.props.type}
             secureTextEntry={this.state.isHidden}
             isActive={this.state.isActive}

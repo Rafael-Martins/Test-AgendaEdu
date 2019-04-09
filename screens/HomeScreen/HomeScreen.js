@@ -1,17 +1,26 @@
 import React from "react";
-import { View } from "react-native";
-import { LoginForm } from "../../components/LoginForm";
-import { LoginContainer } from "./HomeScreen.style";
+import { View, Text, AsyncStorage } from "react-native";
+import { BaseButton } from "../../components/BaseButton/BaseButton";
 
 export class HomeScreen extends React.Component {
   static navigationOptions = {
     header: null
   };
+
   render() {
     return (
-      <LoginContainer>
-        <LoginForm />
-      </LoginContainer>
+      <View>
+        <Text>SAASDHLKASHDL</Text>
+        <Text>SAASDHLKASHDL</Text>
+        <BaseButton
+          title="logoff"
+          onPress={async params => {
+            console.log("a");
+            await AsyncStorage.clear();
+            this.props.navigation.navigate("AuthLoadingScreen");
+          }}
+        />
+      </View>
     );
   }
 }

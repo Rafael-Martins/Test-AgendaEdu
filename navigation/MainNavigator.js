@@ -1,18 +1,19 @@
 import React from "react";
 import { createStackNavigator } from "react-navigation";
-
 import { HomeScreen } from "../screens/HomeScreen";
+import { LoginScreen } from "../screens/LoginScreen";
 
-const HomeStack = createStackNavigator({
-  Home: HomeScreen
-});
-
-export default createStackNavigator(
+export const HomeStack = createStackNavigator(
   {
-    HomeStack
+    Home: HomeScreen
   },
   {
-    initialRouteName: "HomeStack",
-    headerMode: "node"
+    initialRouteName: "Home",
+    headerMode: "none"
   }
+);
+
+export const LoginStack = createStackNavigator(
+  { Login: LoginScreen },
+  { header: "none" }
 );
