@@ -1,12 +1,13 @@
 import React from "react";
 import http from "../../services/http";
-import { AsyncStorage } from "react-native";
+import { AsyncStorage, ActivityIndicator } from "react-native";
 import { BaseButton } from "../../components/BaseButton/BaseButton";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import { addEvents } from "../../actions";
 import { Container } from "./HomeScreen.style";
 import { EventsList } from "../../components/EventsList";
+import { colors } from "../../constants/Colors";
 
 class HomeScreen extends React.Component {
   async componentDidMount() {
@@ -21,7 +22,11 @@ class HomeScreen extends React.Component {
   render() {
     return (
       <Container>
-        <EventsList />
+        {this.props.events.loaded ? (
+          <EventsList events={this.props.events.eventsArray} />
+        ) : (
+          <ActivityIndicator size={40} color={colors.primary} />
+        )}
       </Container>
     );
   }
