@@ -5,10 +5,6 @@ import { LoginContainer } from "./LoginScreen.style";
 import http from "../../services/http";
 
 export class LoginScreen extends React.Component {
-  static navigationOptions = {
-    header: null
-  };
-
   state = {
     email: "",
     password: ""

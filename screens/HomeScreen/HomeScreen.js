@@ -1,17 +1,18 @@
 import React from "react";
-import { View, Text, AsyncStorage } from "react-native";
-import { BaseButton } from "../../components/BaseButton/BaseButton";
 import http from "../../services/http";
+import { AsyncStorage } from "react-native";
+import { BaseButton } from "../../components/BaseButton/BaseButton";
+import { connect } from "react-redux";
+import { bindActionCreators } from "redux";
+import { addEvents } from "../../actions";
+import { Container } from "./HomeScreen.style";
+import { EventsList } from "../../components/EventsList";
 
-export class HomeScreen extends React.Component {
-  static navigationOptions = {
-    header: null
-  };
-
+class HomeScreen extends React.Component {
   async componentDidMount() {
     try {
       const response = await http.getEvents();
-      console.log(response);
+      this.props.addEvents(response);
     } catch (error) {
       console.log(error);
     }
@@ -19,18 +20,26 @@ export class HomeScreen extends React.Component {
 
   render() {
     return (
-      <View>
-        <Text>SAASDHLKASHDL</Text>
-        <Text>SAASDHLKASHDL</Text>
-        <BaseButton
-          title="logoff"
-          onPress={async params => {
-            console.log("a");
-            await AsyncStorage.clear();
-            this.props.navigation.navigate("AuthLoadingScreen");
-          }}
-        />
-      </View>
+      <Container>
+        <EventsList />
+      </Container>
     );
   }
 }
+
+const mapStateToProps = state => {
+  return { events: state.events };
+};
+
+mapDispatchToProps = dispatch =>
+  bindActionCreators(
+    {
+      addEvents
+    },
+    dispatch
+  );
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(HomeScreen);

@@ -36,7 +36,7 @@ export default {
 
   getEvents: async () => {
     try {
-      const response = await fetch(`${BASE_URL}/events?limit=1;page=1`, {
+      const response = await fetch(`${BASE_URL}/events?limit=2;page=1`, {
         method: "GET",
         headers: {
           Accept: "application/json",
@@ -46,7 +46,7 @@ export default {
       });
 
       if (response.ok) {
-        console.log(response);
+        return await response.json();
       }
 
       return response;
