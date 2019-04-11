@@ -13,6 +13,7 @@ export const Box = styled.View`
 export const DayText = styled.Text`
   font-size: 22px;
   color: ${colors.primary};
+  font-weight: bold;
 `;
 
 export const MonthText = styled.Text`

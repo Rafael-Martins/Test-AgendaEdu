@@ -2,6 +2,15 @@ import React from "react";
 import { View, Text } from "react-native";
 import { EventTime } from "../../components/EventTime";
 import { DateBox } from "../../components/DateBox";
+import {
+  EventImage,
+  EventInfoBox,
+  InfoHeader,
+  TitleContainer,
+  Title,
+  Container,
+  DescriptionText
+} from "./EventScreen.style";
 
 export class EventScreen extends React.Component {
   static navigationOptions = ({ navigation }) => {
@@ -14,11 +23,22 @@ export class EventScreen extends React.Component {
   render() {
     const event = this.props.navigation.getParam("event");
     return (
-      <View>
-        <Text>{event.title}</Text>
-        <EventTime time={event.startAt} size={16} />
-        <DateBox date={event.startAt} />
-      </View>
+      <Container>
+        <EventImage source={{ uri: event.image }}>
+          <EventInfoBox>
+            <InfoHeader>
+              <DateBox date={event.startAt} />
+
+              <TitleContainer>
+                <Title>Exposicao de telas no museu de fotografia</Title>
+                <EventTime time={event.startAt} size={16} />
+              </TitleContainer>
+            </InfoHeader>
+
+            <DescriptionText>{event.description}</DescriptionText>
+          </EventInfoBox>
+        </EventImage>
+      </Container>
     );
   }
 }

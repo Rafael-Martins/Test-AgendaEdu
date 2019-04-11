@@ -10,4 +10,5 @@ export const TimeText = styled.Text`
   margin-left: 6px;
   color: ${colors.gray};
   font-size: ${props => props.size}px;
+  font-weight: 100;
 `;
