@@ -1,7 +1,6 @@
 import React from "react";
 import http from "../../services/http";
-import { AsyncStorage, ActivityIndicator } from "react-native";
-import { BaseButton } from "../../components/BaseButton/BaseButton";
+import { ActivityIndicator } from "react-native";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import { addEvents } from "../../actions";
@@ -20,7 +19,7 @@ class HomeScreen extends React.Component {
   }
 
   goToEvent = event => {
-    this.props.navigation.navigate("Event");
+    this.props.navigation.navigate("Event", { event });
   };
 
   render() {

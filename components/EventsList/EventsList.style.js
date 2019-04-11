@@ -11,6 +11,7 @@ export const DayName = styled.Text`
   margin-bottom: 24px;
   font-size: 14px;
   color: ${colors.secondGray};
+  text-transform: capitalize;
 `;
 
 export const EventsContainer = styled.View``;

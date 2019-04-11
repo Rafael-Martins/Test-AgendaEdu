@@ -22,16 +22,6 @@ export const EventTitle = styled.Text`
   color: ${colors.darkGray};
 `;
 
-export const TimeContainer = styled.View`
-  flex-direction: row;
-  align-items: center;
-`;
-
-export const TimeText = styled.Text`
-  margin-left: 6px;
-  color: ${colors.gray};
-`;
-
 export const FullDate = styled.Text`
   color: ${colors.secondGray};
   font-size: 14px;

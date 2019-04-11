@@ -1,27 +1,23 @@
 import React from "react";
-import { View, Text, AsyncStorage } from "react-native";
-import { BaseButton } from "../../components/BaseButton/BaseButton";
-import http from "../../services/http";
-import { TopBar } from "../../components/TopBar";
+import { View, Text } from "react-native";
+import { EventTime } from "../../components/EventTime";
+import { DateBox } from "../../components/DateBox";
 
 export class EventScreen extends React.Component {
-  static navigationOptions = {
-    headerTitle: <TopBar />,
-    headerStyle: { height: 70 }
+  static navigationOptions = ({ navigation }) => {
+    return {
+      headerTitle: navigation.getParam("event").title,
+      headerStyle: { height: 70 }
+    };
   };
 
-  async componentDidMount() {
-    try {
-      const response = await http.getEvents();
-    } catch (error) {
-      console.log(error);
-    }
-  }
-
   render() {
+    const event = this.props.navigation.getParam("event");
     return (
       <View>
-        <Text>EEEEEVENT</Text>
+        <Text>{event.title}</Text>
+        <EventTime time={event.startAt} size={16} />
+        <DateBox date={event.startAt} />
       </View>
     );
   }

@@ -3,18 +3,14 @@ import {
   Container,
   TextEvents,
   EventTitle,
-  TimeContainer,
-  TimeText,
   FullDate,
   EventMiddleContainer,
   EventInfoContainer,
   EventImage
 } from "./EventsItem.style";
-import { Text, View } from "react-native";
 import { format } from "date-fns";
-import Icon from "react-native-vector-icons/FontAwesome";
-import { colors } from "../../constants/Colors";
 import locale from "date-fns/locale/pt";
+import { EventTime } from "../EventTime";
 
 const shadow = {
   shadowColor: "#733DBE",
@@ -38,10 +34,7 @@ export const EventsItem = props => (
         <EventTitle ellipsizeMode="tail" numberOfLines={1}>
           {props.event.title}
         </EventTitle>
-        <TimeContainer>
-          <Icon name="clock-o" color={colors.gray} size={14} />
-          <TimeText>{format(props.event.startAt, "HH:mm")}</TimeText>
-        </TimeContainer>
+        <EventTime time={props.event.startAt} size={14} />
       </EventMiddleContainer>
 
       <FullDate>

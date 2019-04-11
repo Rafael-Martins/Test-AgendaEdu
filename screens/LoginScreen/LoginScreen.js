@@ -1,5 +1,4 @@
 import React from "react";
-import { View, AsyncStorage } from "react-native";
 import { LoginForm } from "../../components/LoginForm";
 import { LoginContainer } from "./LoginScreen.style";
 import http from "../../services/http";
