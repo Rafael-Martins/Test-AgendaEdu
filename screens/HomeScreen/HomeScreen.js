@@ -19,11 +19,18 @@ class HomeScreen extends React.Component {
     }
   }
 
+  goToEvent = event => {
+    this.props.navigation.navigate("Event");
+  };
+
   render() {
     return (
       <Container>
         {this.props.events.loaded ? (
-          <EventsList events={this.props.events.eventsArray} />
+          <EventsList
+            events={this.props.events.eventsArray}
+            goToEvent={this.goToEvent}
+          />
         ) : (
           <ActivityIndicator size={40} color={colors.primary} />
         )}
