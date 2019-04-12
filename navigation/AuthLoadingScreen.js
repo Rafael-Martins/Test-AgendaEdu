@@ -23,8 +23,8 @@ export class AuthLoadingScreen extends React.Component {
   // Render any loading content that you like here
   render() {
     return (
-      <View>
-        <Text>LALALAa</Text>
+      <View style={{ alignItems: "center", justifyContent: "center", flex: 1 }}>
+        <ActivityIndicator size={30} />
       </View>
     );
   }

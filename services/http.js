@@ -36,7 +36,7 @@ export default {
 
   getEvents: async () => {
     try {
-      const response = await fetch(`${BASE_URL}/events?limit=5;page=1`, {
+      const response = await fetch(`${BASE_URL}/events?limit=50;page=1`, {
         method: "GET",
         headers: {
           Accept: "application/json",

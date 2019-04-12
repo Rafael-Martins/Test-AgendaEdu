@@ -7,6 +7,8 @@ import { colors } from "../../constants/Colors";
 export const EventTime = props => (
   <TimeContainer>
     <Icon name="clock-o" color={colors.gray} size={14} />
-    <TimeText size={props.size || 14}>{format(props.time, "HH:mm")}</TimeText>
+    <TimeText testID="TimeText" size={props.size || 14}>
+      {format(props.time, "HH:mm")}
+    </TimeText>
   </TimeContainer>
 );

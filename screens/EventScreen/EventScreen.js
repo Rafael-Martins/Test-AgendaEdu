@@ -30,7 +30,7 @@ export class EventScreen extends React.Component {
               <DateBox date={event.startAt} />
 
               <TitleContainer>
-                <Title>Exposicao de telas no museu de fotografia</Title>
+                <Title>{event.title}</Title>
                 <EventTime time={event.startAt} size={16} />
               </TitleContainer>
             </InfoHeader>

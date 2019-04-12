@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from "styled-components/native";
 import { colors } from "../../constants/Colors";
 
 const inputBorderColor = props =>
@@ -22,7 +22,7 @@ export const InputContainer = styled.View`
   flex-direction: row;
 `;
 
-export const IconContainer = styled.View`
+export const IconContainer = styled.TouchableHighlight`
   border-style: solid;
   border-bottom-width: 1px;
   border-top-width: 1px;

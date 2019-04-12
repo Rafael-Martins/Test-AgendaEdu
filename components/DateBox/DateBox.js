@@ -5,7 +5,9 @@ import locale from "date-fns/locale/pt";
 
 export const DateBox = props => (
   <Box>
-    <DayText>{format(props.date, "D")}</DayText>
-    <MonthText>{format(props.date, "MMM", { locale })}</MonthText>
+    <DayText testID="DayText">{format(props.date, "D")}</DayText>
+    <MonthText testID="MonthText">
+      {format(props.date, "MMM", { locale })}
+    </MonthText>
   </Box>
 );

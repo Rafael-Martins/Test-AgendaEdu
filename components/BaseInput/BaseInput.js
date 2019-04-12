@@ -23,10 +23,11 @@ export class BaseInput extends React.Component {
     return (
       <Container>
         <LabelContainer>
-          <Label>{this.props.label}</Label>
+          <Label testID="InputLabel">{this.props.label}</Label>
         </LabelContainer>
         <InputContainer>
           <Input
+            testID="Input"
             onChangeText={this.props.onChangeText}
             textContentType={this.props.type}
             secureTextEntry={this.state.isHidden}
@@ -39,15 +40,23 @@ export class BaseInput extends React.Component {
             }}
           />
 
-          <IconContainer isActive={this.state.isActive}>
+          <IconContainer
+            underlayColor="white"
+            onPress={params => {
+              if (this.props.type != "password") return;
+              this.setState({ isHidden: !this.state.isHidden });
+            }}
+            isActive={this.state.isActive}
+            testID="InputIcon"
+          >
             <Icon
-              name={this.props.icon}
+              name={
+                !this.state.isHidden & (this.props.type == "password")
+                  ? "eye"
+                  : this.props.icon
+              }
               size={16}
               color={colors.lightGray}
-              onPress={params => {
-                if (this.props.type != "password") return;
-                this.setState({ isHidden: !this.state.isHidden });
-              }}
             />
           </IconContainer>
         </InputContainer>

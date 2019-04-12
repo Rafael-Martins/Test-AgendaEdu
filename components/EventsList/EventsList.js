@@ -28,8 +28,8 @@ export const EventsList = props => {
     <Container>
       {keyOrder.map(day => {
         return (
-          <DayContainer key={day}>
-            <DayName>{day}</DayName>
+          <DayContainer key={day} testID="DayContainer">
+            <DayName testID="DayName">{day}</DayName>
 
             <EventsContainer>
               {eventsByDay[day].map(event => (
